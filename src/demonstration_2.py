@@ -5,9 +5,9 @@ that the integer contains (the
 
 Examples:
 
-- `hamming_weight(n = 00000000000000000000001000000011) -> 3`
-- `hamming_weight(n = 00000000000000000000000000001000) -> 1`
-- `hamming_weight(n = 11111111111111111111111111111011) -> 31`
+- `hamming_weight(n = 0b00000000000000000000001000000011) -> 3`
+- `hamming_weight(n = 0b00000000000000000000000000001000) -> 1`
+- `hamming_weight(n = 0b11111111111111111111111111111011) -> 31`
 
 Notes:
 
@@ -18,4 +18,22 @@ when we know the value we are counting will always be non-negative."
 """
 def hamming_weight(n):
     # Your code here
+    print(bin(n).count('1'))
 
+hamming_weight(0b11111111111111111111111111111011)
+
+
+def hamming_weight(n):
+    # Your code here
+    count = 0
+
+    while n != 0:
+        if n & 1:
+            count += 1
+        n = n >> 1
+
+    return count
+
+n = 0b10101101
+
+print(hamming_weight(n))
